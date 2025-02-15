@@ -1,32 +1,96 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Restaurant page</title>
 </head>
+
 <body>
     <header>
-        <h1>Restaurant Name</h1>
+        <span class="restaurant-title"><a href="#">Joe's Pizza</a></span>
         <nav>
             <ul>
-                <li>
+                <li class="header-nav-item">
                     <button type="button">Home</button>
                 </li>
-                <li>
+                <li class="header-nav-item">
                     <button type="button">Menu</button>
                 </li>
-                <li>
+                <li class="header-nav-item">
                     <button type="button">About</button>
                 </li>
-                <li>
+                <li class="header-nav-item">
                     <button type="button">Contact</button>
                 </li>
             </ul>
         </nav>
     </header>
     <div id="content">
-
+        <div class="hero-image">
+            <div class="hero-content">
+                <div class="hero-text">
+                    <h1>Joe's Pizza</h1>
+                    <p>It's Pizza time!</p>
+                </div>
+                <button type="button">See menu</button>
+            </div>
+        </div>
+        <div class="content-section">
+            <div class="summary">
+                <p>What we're about.</p>
+                <p>The best Pizza in town, guaranteed delivery in 29 minutes or
+                    less.</p>
+            </div>
+        </div>
+        <div class="content-section">
+            <div class="about-us">
+                <div class="about-us-description">
+                    <h2>Who we are</h2>
+                    <p>We serve the best pizzas in New York. We use only the
+                        best
+                        ingredients
+                        and everything we make is handmade and fresh. Our
+                        deliveries are
+                        so
+                        fast even Spider-Man himself would struggle to deliver
+                        faster
+                        pizzas than us.
+                    </p>
+                </div>
+                <img class="about-us-location" src="./img/Joe's_Pizza.jpg"
+                    alt="Photo of Joe's pizza restaurant.">
+            </div>
+        </div>
     </div>
+    <footer>
+        <div class="footer-content">
+            <div class="footer-address">
+                <h3>Address</h3>
+                <p>Joe's Pizza<br>7 Carmine Street<br>New York, NY 10014</p>
+            </div>
+            <div class="footer-hours">
+                <h3>Hours</h3>
+                <p>
+                    Sun to Thu 10:00 AM to 03:00 AM<br>
+                    Fri to Sat 10:00 AM to 04:00 AM
+                </p>
+            </div>
+            <div class="footer-contact">
+                <h3>Contact Us</h3>
+                <p>
+                    561-555-0189<br>
+                    joes@pizza.com
+                </p>
+            </div>
+        </div>
+        <div class="footer-legals">
+            <a
+                href="https://www.freepik.com/free-photo/top-view-delicious-pizza-wooden-table_9772390.htm#fromView=search&page=1&position=7&uuid=87afdb5d-7e7f-47f2-9ca0-94ccf4abb371&query=Pizza">Image
+                by freepik</a>
+        </div>
+    </footer>
 </body>
+
 </html>
