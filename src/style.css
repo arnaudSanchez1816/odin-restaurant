@@ -93,6 +93,7 @@ footer > .footer-content {
 footer > .footer-content > div {
     line-height: 1.5;
     text-align: center;
+    white-space: pre;
     > h3 {
         margin-bottom: 0.5em;
     }

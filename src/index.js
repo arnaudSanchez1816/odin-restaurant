@@ -1,1 +1,3 @@
-import "./style.css";
+import buildWebsite from "./template.js" 
+
+buildWebsite();
