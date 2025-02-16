@@ -5,6 +5,15 @@
     --dark-background-color: #404040;
     --dark-text-color: rgba(0, 0, 0, 0.87);
     --white-text-color: #fff;
+    --light-border: 1px solid rgb(200, 200, 200, 0.6);
+
+    --dark-button-background-color: var(--dark-background-color);
+    --dark-button-background-color-hover: rgb(from var(--dark-button-background-color) calc(r + 30) calc(g + 30) calc(b + 30));
+    --dark-button-background-color-active: rgb(from var(--dark-button-background-color) calc(r + 10) calc(g + 10) calc(b + 10));
+
+    --white-button-background-color: #fff;
+    --white-button-background-color-hover: rgb(from var(--white-button-background-color) calc(r - 40) calc(g - 40) calc(b - 40));
+    --white-button-background-color-active: rgb(from var(--white-button-background-color) calc(r - 60) calc(g - 60) calc(b - 60));;
 
     --header-height: 100px;
     --footer-height: 200px;
@@ -65,16 +74,16 @@ header .header-nav-item>button {
     border-radius: 20px;
     cursor: pointer;
     border: none;
-    background-color: inherit;
     color: inherit;
     font-weight: bold;
+    background-color: var(--dark-button-background-color);
 
     &:hover {
-        background-color: rgba(160, 160, 160, 0.3);
+        background-color: var(--dark-button-background-color-hover);
     }
 
     &:active {
-        background-color: rgba(160, 160, 160, 0.5);
+        background-color: var(--dark-button-background-color-active);
     }
 }
 
@@ -177,6 +186,15 @@ footer > .footer-legals {
     width: fit-content;
     font-size: 1.5rem;
     font-weight: bold;
+    background-color: var(--white-button-background-color);
+
+    &:hover {
+        background-color: var(--white-button-background-color-hover);
+    }
+
+    &:active {
+        background-color: var(--white-button-background-color-active);
+    }
 }
 
  /* Home */
@@ -236,4 +254,74 @@ footer > .footer-legals {
 
 .contact .hero-image {
     height: 150px;
+}
+
+.contact .contact-form-content{
+    max-width: 100ch;
+    border: var(--light-border);
+    padding: 40px;
+
+    > h2 {
+        font-size: 2rem;
+        margin-bottom: 20px;
+    }
+
+    > p {
+        font-size: 1.2em;
+        margin-bottom: 40px;
+        line-height: 1.5;
+    }
+}
+
+.contact .contact-form-content .form-item  {
+    display: flex;
+    gap: 10px;
+    flex-direction: column;
+    margin-bottom: 30px;
+
+    > label {
+        font-weight: 500;
+        text-transform: uppercase;
+    }
+
+    > input[type="text"],
+    > input[type="email"],
+    > textarea {
+        color: inherit;
+        font-size: 1rem;
+        padding: 0.5em 2ch;
+    }
+
+    > input[type="text"],
+    > input[type="email"] {
+        min-height: 2.5em;
+    }
+
+    > textarea {
+        height: 10em;
+        min-height: 10em;
+        min-width: 100%;
+        max-width: 100%;
+    }
+}
+
+.contact .contact-form-content button[type="submit"] {
+    display: block;
+    margin: 0 auto;
+    letter-spacing: 0.15em;
+    font-size: 1.2em;
+    text-transform: uppercase;
+    color: var(--white-text-color);
+    background-color: var(--dark-button-background-color);
+    border: none;
+    width: 90%;
+    padding: 0.8em 3em;
+
+    &:hover {
+        background-color: var(--dark-button-background-color-hover);
+    }
+
+    &:active {
+        background-color: var(--dark-button-background-color-active);
+    }
 }

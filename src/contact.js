@@ -60,6 +60,9 @@ class Contact extends View {
         const nameInput = document.createElement("input");
         nameInput.type = "text";
         nameInput.id = "contact-name";
+        nameInput.name = nameInput.id;
+        nameInput.required = true;
+        nameInput.maxLength = 256;
         nameInput.placeholder = "Enter your name"
         nameLabel.textContent = "Name";
         nameLabel.htmlFor = nameInput.id;
@@ -67,8 +70,10 @@ class Contact extends View {
 
         const emailLabel = document.createElement("label");
         const emailInput = document.createElement("input");
-        emailInput.type = "text";
+        emailInput.type = "email";
         emailInput.id = "contact-email";
+        emailInput.name = emailInput.id;
+        emailInput.required = true;
         emailInput.placeholder = "Enter your email"
         emailLabel.textContent = "Email address";
         emailLabel.htmlFor = emailInput.id;
@@ -77,7 +82,10 @@ class Contact extends View {
         const messageLabel = document.createElement("label");
         const messageTextArea = document.createElement("textarea");
         messageTextArea.id = "contact-message";
+        messageTextArea.name = messageTextArea.id;
         messageTextArea.placeholder = "Enter your message"
+        messageTextArea.required = true;
+        messageTextArea.maxLength = 300;
         messageLabel.textContent = "Message";
         messageLabel.htmlFor = messageTextArea.id;
         const messageItemContainer = createFormItem([messageLabel, messageTextArea]);
@@ -87,6 +95,10 @@ class Contact extends View {
         submitButton.textContent = "Submit";
 
         const form = document.createElement("form");
+        form.addEventListener("submit", (event) => {
+            event.preventDefault();
+            form.reset();
+        });
         form.appendChild(nameItemContainer);
         form.appendChild(emailItemContainer);
         form.appendChild(messageItemContainer);
