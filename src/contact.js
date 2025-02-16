@@ -40,11 +40,9 @@ class Contact extends View {
 
     #createContactSectionMarkup() {
         const contactForm = this.#createContactFormMarkup();
-        const contactInfos = this.#createContactInformationMarkup();
 
         const section = createSectionMarkup();
         section.appendChild(contactForm);
-        section.appendChild(contactInfos);
 
         return section;
     }
@@ -99,13 +97,6 @@ class Contact extends View {
         content.appendChild(formHeading);
         content.appendChild(formDescription);
         content.appendChild(form);
-
-        return content;
-    }
-
-    #createContactInformationMarkup() {
-        const content = document.createElement("div");
-        content.classList.add("contact-infos-content");
 
         return content;
     }
