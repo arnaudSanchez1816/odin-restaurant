@@ -3,13 +3,15 @@ class View {
     }
 
     loadView() {
-        this.content = document.querySelector("#content");
-        this.#clearContent();
+        this.container = document.createElement("div");
+        const content = document.querySelector("#content");
+        this.#clearContent(content);
+        content.appendChild(this.container);
     }
 
-    #clearContent() {
-        while(this.content.lastElementChild) {
-            this.content.removeChild(this.content.lastElementChild);
+    #clearContent(content) {
+        while(content.lastElementChild) {
+            content.removeChild(content.lastElementChild);
         }
     }
 }

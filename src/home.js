@@ -8,22 +8,23 @@ class Home extends View {
     constructor() {
         super();
     }
-
+    
     loadView() {
         super.loadView();
-        
+        this.container.classList = ["home"];
+
         const hero = this.#createHeroMarkup();
-        this.content.appendChild(hero);
+        this.container.appendChild(hero);
 
         const summary = this.#createSummaryMarkup();
-        this.content.appendChild(summary);
+        this.container.appendChild(summary);
 
         const aboutUs = this.#createAboutUsMarkup();
-        this.content.appendChild(aboutUs);
+        this.container.appendChild(aboutUs);
     }
 
     #createHeroMarkup() {
-        const heroMenuButton = document.createElement("p");
+        const heroMenuButton = document.createElement("button");
         heroMenuButton.attributes["type"] = "button";
         heroMenuButton.textContent = "See menu";
 

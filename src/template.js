@@ -1,7 +1,9 @@
 import sheet from "./style.css";
 import Home from "./home.js"
+import Contact from "./contact.js"
 
 const home = new Home();
+const contact = new Contact();
 
 function createHeaderMarkup() {
     const title = document.createElement("span");
@@ -15,7 +17,7 @@ function createHeaderMarkup() {
     navUl.appendChild(createNavItem("Home", () => home.loadView()));
     navUl.appendChild(createNavItem("Menu", () => home.loadView()));
     navUl.appendChild(createNavItem("About", () => home.loadView()));
-    navUl.appendChild(createNavItem("Contact", () => home.loadView()));
+    navUl.appendChild(createNavItem("Contact", () => contact.loadView()));
     const nav = document.createElement("nav");
     nav.appendChild(navUl);
 
@@ -93,7 +95,7 @@ function buildWebsite() {
     const footer = createFooterMarkup();
     document.body.appendChild(footer);
 
-    home.loadView();
+    contact.loadView();
 }
 
 export default buildWebsite;
