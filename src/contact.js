@@ -114,4 +114,10 @@ class Contact extends View {
     }
 }
 
-export default Contact;
+const contactView = new Contact();
+
+function displayContact() {
+    contactView.loadView();
+}
+
+export default displayContact;

@@ -96,4 +96,10 @@ class Home extends View {
     }
 }
 
-export default Home;
+const homeView = new Home();
+
+function displayHome() {
+    homeView.loadView();
+}
+
+export default displayHome;
