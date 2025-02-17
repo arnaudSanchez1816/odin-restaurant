@@ -3,6 +3,8 @@
 
 import { View, createSectionMarkup } from "./view.js";
 import locationImage from "./img/Joe's_Pizza.jpg"
+import displayMenu from "./menu.js";
+import {setSelectedNavItem, getNavItem} from "./navSelection.js";
 
 class Home extends View {
     constructor() {
@@ -27,6 +29,9 @@ class Home extends View {
         const heroMenuButton = document.createElement("button");
         heroMenuButton.attributes["type"] = "button";
         heroMenuButton.textContent = "See menu";
+        heroMenuButton.addEventListener("click", () => {
+            displayMenu();
+        });
 
         const heroText = document.createElement("div");
         heroText.classList.add("hero-text");
@@ -100,6 +105,7 @@ const homeView = new Home();
 
 function displayHome() {
     homeView.loadView();
+    setSelectedNavItem(getNavItem("nav-home"));
 }
 
 export default displayHome;

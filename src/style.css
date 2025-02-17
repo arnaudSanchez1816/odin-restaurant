@@ -8,6 +8,7 @@
     --light-border: 1px solid rgb(200, 200, 200, 0.6);
 
     --dark-button-background-color: var(--dark-background-color);
+    --dark-button-background-color-selected: rgb(from var(--dark-button-background-color) calc(r + 20) calc(g + 20) calc(b + 20));
     --dark-button-background-color-hover: rgb(from var(--dark-button-background-color) calc(r + 30) calc(g + 30) calc(b + 30));
     --dark-button-background-color-active: rgb(from var(--dark-button-background-color) calc(r + 10) calc(g + 10) calc(b + 10));
 
@@ -87,6 +88,10 @@ header .header-nav-item>button {
     }
 }
 
+header .header-nav-item.selected > button {
+    background-color: var(--dark-button-background-color-selected);
+}
+
 /* Footer */
 
 footer {
@@ -107,6 +112,7 @@ footer > .footer-content {
 }
 
 footer > .footer-content > div {
+    min-width: 30%;
     line-height: 1.5;
     text-align: center;
     white-space: pre;
@@ -116,7 +122,10 @@ footer > .footer-content > div {
 }
 
 footer > .footer-legals {
-    text-align: center;
+    display: flex;
+    width: 70%;
+    justify-content: center;
+    gap: 2ch;
     margin-top: 20px;
     width: 100%;
     a {
@@ -323,5 +332,46 @@ footer > .footer-legals {
 
     &:active {
         background-color: var(--dark-button-background-color-active);
+    }
+}
+
+/* Menu */
+
+.menu .hero-image {
+    height: 150px;
+}
+
+.menu .menu-items-content {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-auto-rows: 400px;
+    gap: 30px 50px;
+}
+
+.menu .menu-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.6em;
+
+    h3 {
+        font-size: 2em;
+    }
+
+    img {
+        border: var(--light-border);
+        object-fit: cover;
+        width: 90%;
+        height: 250px;
+    }
+
+    > .menu-item-description {
+        line-height: 1.5;
+        min-height: 60px;
+    }
+
+    > .menu-item-price {
+        font-size: 1.5em;
+        font-weight: bold;
     }
 }

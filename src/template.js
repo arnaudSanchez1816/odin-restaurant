@@ -2,6 +2,7 @@ import sheet from "./style.css";
 import displayHome from "./home.js"
 import displayMenu from "./menu.js"
 import displayContact from "./contact.js"
+import {createNavItem, getNavItem, setSelectedNavItem} from "./navSelection.js";
 
 function createHeaderMarkup() {
     const title = document.createElement("span");
@@ -12,9 +13,15 @@ function createHeaderMarkup() {
     title.appendChild(homeLink);
 
     const navUl = document.createElement("ul");
-    navUl.appendChild(createNavItem("Home", () => displayHome()));
-    navUl.appendChild(createNavItem("Menu", () => displayMenu()));
-    navUl.appendChild(createNavItem("Contact", () => displayContact()));
+    const homeNavItem = createNavItem("Home", "nav-home", () => displayHome());
+    navUl.appendChild(homeNavItem);
+
+    const menuNavItem = createNavItem("Menu", "nav-menu", () => displayMenu());
+    navUl.appendChild(menuNavItem);
+
+    const contactNavItem = createNavItem("Contact", "nav-contact", () => displayContact());
+    navUl.appendChild(contactNavItem);
+
     const nav = document.createElement("nav");
     nav.appendChild(navUl);
 
@@ -44,12 +51,15 @@ function createFooterMarkup() {
 
     const footerLegals = document.createElement("div");
     footerLegals.classList = ["footer-legals"];
-    const freepikLink = document.createElement("a");
-    freepikLink.textContent = "Image by freepik";
-    freepikLink.href = 
-    "https://www.freepik.com/free-photo/top-view-delicious-pizza-wooden-table_9772390.htm\
-     #fromView=search&page=1&position=7&uuid=87afdb5d-7e7f-47f2-9ca0-94ccf4abb371&query=Pizza";
-     footerLegals.appendChild(freepikLink);
+
+     const freepik1 = createImageSourceLink("Image by freepik", "https://www.freepik.com/free-photo/top-view-delicious-pizza-wooden-table_9772390.htm\
+     #fromView=search&page=1&position=7&uuid=87afdb5d-7e7f-47f2-9ca0-94ccf4abb371&query=Pizza");
+     footerLegals.appendChild(freepik1);
+
+
+     const freepik2 = createImageSourceLink("Image by freepik", "https://www.freepik.com/free-psd/top-view-delicious-pizza_370860293.htm\
+     #fromView=search&page=1&position=27&uuid=b001b61e-bb13-4a58-9fc5-3d2a9d8d79e6&query=pizza");
+     footerLegals.appendChild(freepik2);
 
     const footer = document.createElement("footer");
     footer.appendChild(footerContent);
@@ -70,18 +80,13 @@ function createFooterContentSection(headingText, sectionText) {
     return footerSection;
 }
 
-function createNavItem(text, navCallback) {
-    const li = document.createElement("li");
-    li.classList = ["header-nav-item"];
 
-    const button = document.createElement("button");
-    button.attributes["type"] = "button";
-    button.textContent = text;
-    button.addEventListener("click", navCallback);
+function createImageSourceLink(text, href) {
+    const anchor = document.createElement("a");
+    anchor.textContent = text;
+    anchor.href = href;
 
-    li.appendChild(button);
-
-    return li;
+    return anchor;
 }
 
 function buildWebsite() {
@@ -92,7 +97,11 @@ function buildWebsite() {
     const footer = createFooterMarkup();
     document.body.appendChild(footer);
 
-    displayMenu();
+    displayHome();
+    const homeNavItem = getNavItem("nav-home");
+    if(homeNavItem) {
+        setSelectedNavItem(homeNavItem);
+    }
 }
 
 export default buildWebsite;

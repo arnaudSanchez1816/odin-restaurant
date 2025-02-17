@@ -1,4 +1,5 @@
 import { View, createSectionMarkup } from "./view.js";
+import {setSelectedNavItem, getNavItem} from "./navSelection.js";
 
 function createFormItem(childElements) {
     const formItem = document.createElement("div");
@@ -118,6 +119,7 @@ const contactView = new Contact();
 
 function displayContact() {
     contactView.loadView();
+    setSelectedNavItem(getNavItem("nav-contact"));
 }
 
 export default displayContact;
