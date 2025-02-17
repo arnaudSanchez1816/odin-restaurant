@@ -125,6 +125,7 @@ footer > .footer-legals {
     display: flex;
     width: 70%;
     justify-content: center;
+    align-items: center;
     gap: 2ch;
     margin-top: 20px;
     width: 100%;
@@ -137,6 +138,26 @@ footer > .footer-legals {
         &:active {
             color: #aaa;
         }
+    }
+}
+
+footer .github-svg {
+    mask: url(./img/github-mark-white.svg) no-repeat center / contain;
+    width: 2rem;
+    height: 2rem;
+    display: inline-block;
+    background-color: var(--white-button-background-color);
+    
+    &:hover {
+        background-color: var(--white-button-background-color-hover);
+    }
+
+    &:active {
+        background-color: var(--white-button-background-color-active);
+    }
+
+    &:visited {
+        background-color: var(--white-button-background-color);
     }
 }
 
